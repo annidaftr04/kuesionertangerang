@@ -1,0 +1,250 @@
+/* ==========================================================================
+   CSS untuk Tampilan Kuesioner yang Lebih Menarik
+   ========================================================================== */
+
+/* Pengaturan Global */
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Gradasi warna biru-hijau */
+    background: linear-gradient(135deg, #1abc9c, #2ecc71, #3498db);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+    
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Animasi gradasi warna */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Wrapper utama kuesioner */
+.kuesioner-wrapper {
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Kuesioner */
+.kuesioner-header {
+    margin-bottom: 40px;
+    text-align: center; /* Menambah rata tengah untuk header */
+}
+
+.kuesioner-header h1 {
+    font-weight: 700;
+    color: #34495e;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.kuesioner-header .header-divider {
+    width: 80px;
+    height: 4px;
+    background-color: #34495e;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.kuesioner-header .subtitle {
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.kuesioner-header .instruction {
+    font-weight: 400;
+    color: #95a5a6;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Styling untuk Formulir */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #34495e;
+}
+
+/* Styling untuk item penilaian */
+.item-penilaian-group {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+}
+
+.item-penilaian-group h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.item-penilaian-group .keterangan-penilaian {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+/* Styling untuk label rating (Harapan dan Kenyataan) */
+.rating-label {
+    font-weight: 500;
+    color: #555;
+    text-align: center;
+    margin-top: 10px; /* Jarak antara angka dan label */
+}
+
+/* Kontainer untuk rating angka dan radio button */
+.rating-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Memastikan konten bisa wrap di layar kecil */
+}
+
+/* Styling untuk angka rating */
+.rating-container .rating-number {
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 20%; /* Memastikan setiap angka mendapat lebar yang sama */
+    text-align: center;
+}
+
+/* Styling untuk grup radio button */
+.radio-group-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.radio-item {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.radio-item .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/* Styling untuk Tombol */
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Responsif untuk Tampilan Mobile (Max-width 767px)
+   ========================================================================== */
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+
+    .kuesioner-wrapper {
+        margin: 0;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .kuesioner-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .item-penilaian-group {
+        padding: 15px;
+    }
+
+    .item-penilaian-group h3 {
+        font-size: 1rem;
+    }
+    
+    .item-penilaian-group .keterangan-penilaian {
+        font-size: 0.85rem;
+    }
+
+    /* Penyesuaian layout rating untuk mobile */
+    .rating-container {
+        flex-direction: column; /* Menjadikan layout vertikal */
+    }
+
+    .rating-container .rating-number,
+    .radio-group-wrapper {
+        width: 100%;
+        display: flex; /* Mempertahankan flexbox untuk radio buttons */
+    }
+    
+    .rating-container .rating-number {
+        display: none; /* Menyembunyikan angka 1-5 di mobile */
+    }
+
+    /* Mengatur ulang radio buttons agar tidak berantakan */
+    .radio-group-wrapper {
+        justify-content: space-around; /* Jarak yang merata antar radio button */
+        margin-bottom: 15px;
+    }
+
+    /* Menyesuaikan ukuran radio button */
+    .radio-item {
+        width: auto;
+        margin: 0 5px;
+    }
+    
+    .radio-item .form-check-input {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Tambahkan label angka di samping radio button untuk kejelasan */
+    .radio-item .form-check-label {
+        font-size: 0.9rem;
+        margin-left: 5px;
+    }
+
+    /* Mengatur ulang baris Harapan dan Kenyataan */
+    .rating-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .rating-row .rating-label {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    /* Menyembunyikan tampilan tabel lama jika masih ada */
+    .table-responsive {
+        display: none;
+    }
+}
